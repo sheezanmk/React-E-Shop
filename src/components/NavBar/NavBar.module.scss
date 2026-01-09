@@ -1,0 +1,34 @@
+.navbar {
+  //border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 1.25rem;
+  background-color: #fff;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar__brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: #111;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.navbar__count {
+  font-weight: 600;
+}
+
+.active {
+  font-weight: 600;
+  text-decoration: none;
+}
