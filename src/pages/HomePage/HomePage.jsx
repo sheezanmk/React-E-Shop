@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getAllProducts } from "../services/product-services";
-import Carousel from "../components/Carousel/Carousel";
-import ProductGrid from "../components/ProductGrid/ProductGrid";
+import { getAllProducts } from "../../services/product-services";
+import Carousel from "../../components/Carousel/Carousel";
+import ProductGrid from "../../components/ProductGrid/ProductGrid";
 
 
 const HomePage = () => {

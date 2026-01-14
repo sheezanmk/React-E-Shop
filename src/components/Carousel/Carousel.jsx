@@ -6,12 +6,12 @@ const Carousel = ({ products }) => {
   
     const [productIndex, setProductIndex] = useState(0);
     
-    // whenever products load/change, start at the first slide
+    
     useEffect(() => {
         setProductIndex(0);
     }, [products.length]);
 
-    // slidde show every 3 seconds
+   
 
     useEffect(()=> {
 
@@ -75,7 +75,7 @@ const Carousel = ({ products }) => {
         )}
       </div>
 
-      {/* Single-slide view (simpler than translateX track) */}
+      
       <div className={styles.carousel__screen}>
         <div className={styles.carousel__slide}>
           <img

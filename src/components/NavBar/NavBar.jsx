@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
-const NavBar = () => {
+const NavBar = ({getCartCount}) => {
   return (
     <>
       <section className={styles.navbar}>
@@ -25,7 +25,7 @@ const NavBar = () => {
                 isActive ? styles.active : undefined
               }
             >
-              Cart <span className={styles.navbar__count}>(0)</span>
+              Cart <span className={styles.navbar__count}>({getCartCount})</span>
             </NavLink>
           </div>
         </nav>
