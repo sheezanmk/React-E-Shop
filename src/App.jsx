@@ -9,18 +9,19 @@ function App() {
   
 
   return (
-    
+    <main className="app">
     <BrowserRouter>
        <NavBar />
-       <main className="app">
+       
         
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
-        </main>
+        
         </BrowserRouter>
+        </main>
       
     
   )

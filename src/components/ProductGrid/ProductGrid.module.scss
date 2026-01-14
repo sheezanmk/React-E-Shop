@@ -11,13 +11,13 @@ gap: 1rem;
 /* Tablet */
 @media (min-width: 700px) {
   .productGrid > * {
-    flex: 1 1 calc(33.333% - 1rem);
+    flex: 0 0 260px;
   }
 }
 
 /* Desktop */
 @media (min-width: 1000px) {
   .productGrid > * {
-    flex: 1 1 calc(25% - 1rem);
+    flex: 0 0 280px;
   }
 }
