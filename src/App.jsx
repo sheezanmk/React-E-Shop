@@ -6,10 +6,13 @@ import CartPage from "./pages/CartPage/CartPage";
 import './App.scss'
 import { useState } from "react";
 import { addToCart, removeFromCart, updateCart, cartCount } from "./pages/CartPage/Cart-operations";
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
 
   const [cart, setCart]= useState([]);
+
 
   const getCartCount = cartCount(cart);
 
@@ -31,21 +34,21 @@ function App() {
   
 
   return (
-    <main className="app">
+   
     <BrowserRouter>
-       <NavBar getCartCount={getCartCount} />
+       <NavBar variant="overlay" getCartCount={getCartCount} />
        
         
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage handleAddToCart={handleAddToCart} />} />
-          <Route path="/cart" element={<CartPage cart={cart}
-                handleRemoveFromCart={handleRemoveFromCart}
-                handleUpdateCart={handleUpdateCart} />} />
+          <Route path="/cart" element={<CartPage cart={cart} handleRemoveFromCart={handleRemoveFromCart} handleUpdateCart={handleUpdateCart} />} />
         </Routes>
+        <Footer />
+       
         
         </BrowserRouter>
-        </main>
+        
       
     
   )

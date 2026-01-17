@@ -145,6 +145,7 @@ const ProductPage = ({ handleAddToCart }) => {
               imageUrl: product.imageUrl,
               variant: selectedVariant,
               quantity: qty,
+              availableStock: product.quantity,
             };
             handleAddToCart(item, product.quantity);
           }}

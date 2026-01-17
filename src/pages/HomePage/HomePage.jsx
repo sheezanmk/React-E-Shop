@@ -1,13 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { getAllProducts } from "../../services/product-services";
 import Carousel from "../../components/Carousel/Carousel";
 import ProductGrid from "../../components/ProductGrid/ProductGrid";
+import Hero from "../../components/Hero/Hero";
 
 
 const HomePage = () => {
+
+  const productsRef = useRef(null);
+  const location = useLocation();
+
+  const handleShopNow = () => {
+    productsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
     const [products, setProducts] = useState([]);
     const [status, setStatus] = useState("idle");
     const [error, setError] = useState("");
+
+    
 
     useEffect(() => {
 
@@ -35,10 +47,17 @@ const HomePage = () => {
 
   return (
     <>
+    <Hero onShopNow={handleShopNow} />
+    <div className="app">
     <Carousel products={CarouselProducts} />
+    <div ref={productsRef}  />
       <h2>All Products</h2>
+      
+
       <ProductGrid products={products} />
+      </div>
     </>
+    
   )
 }
 

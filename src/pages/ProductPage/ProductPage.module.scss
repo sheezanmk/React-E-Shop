@@ -27,7 +27,7 @@ max-width: 1100px;
 .details {
   width: 100%;
   max-width: 520px;
-  min-width: 0; /* IMPORTANT: prevents flex overflow issues */
+  min-width: 0; 
 }
 
 .price {

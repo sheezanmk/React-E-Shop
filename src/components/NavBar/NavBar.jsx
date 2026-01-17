@@ -1,12 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
 const NavBar = ({getCartCount}) => {
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   return (
-    <>
-      <section className={styles.navbar}>
+    <header className={`${styles.navbar} ${isHomePage? styles.navbar__overlay : ""}`}>
+      
         <nav className={styles.navbar_nav}>
-          <NavLink to="/" className={styles.navbar_logo}>
+          <NavLink to="/" className={styles.navbar__logo}>
             React E- Shop
           </NavLink>
           <div className={styles.navbar__links}>
@@ -29,8 +32,8 @@ const NavBar = ({getCartCount}) => {
             </NavLink>
           </div>
         </nav>
-      </section>
-    </>
+      
+    </header>
   );
 };
 
