@@ -1,16 +1,32 @@
-# React + Vite
+React E-Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple e-commerce web app built with React and Firebase Firestore.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
+A. Home page with:
+1. Hero section
+2. Featured products carousel
+3. Product grid (fetched from Firestore)
 
-## React Compiler
+B. Product page:
+1. View product details
+2. Select variant (size)
+3. Choose quantity
+4. Add to cart
+5. Out of stock handling
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+C. Cart page:
+1. View items in cart
+2. Update quantity
+3. Remove items
+4. See total price
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Responsive layout (works on mobile and desktop)
+Navigation bar with cart count
+Footer layout
+Data fetched from Firebase Firestore 
+Tech Stack
+1. React
+2. Firebase Firestore
+3. SCSS Modules
