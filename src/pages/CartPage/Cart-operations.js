@@ -37,26 +37,9 @@ export const cartCount = (cart) => {
   return cart.reduce((total, item) => total + item.quantity, 0);
 };
 
-// export const cartCount = (cart) => {
-//   let total = 0;
 
-//   for (let item of cart) {
-//     total = total + item.quantity;
-//   }
-
-//   return total;
-// };
 
 export const cartPrice = (cart) => {
   return cart.reduce((total, item) => total + item.pricePerUnit * item.quantity, 0);
 };
 
-// export const cartPrice = (cart) => {
-//   let total = 0;
-
-//   for (let item of cart) {
-//     total = total + item.pricePerUnit * item.quantity;
-//   }
-
-//   return total;
-// };

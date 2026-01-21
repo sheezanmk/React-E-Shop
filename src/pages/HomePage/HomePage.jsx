@@ -6,14 +6,26 @@ import ProductGrid from "../../components/ProductGrid/ProductGrid";
 import Hero from "../../components/Hero/Hero";
 
 
-const HomePage = () => {
+const HomePage = ({productsRef}) => {
 
-  const productsRef = useRef(null);
+ 
   const location = useLocation();
 
-  const handleShopNow = () => {
-    productsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+ useEffect(() => {
+  if (location.state && location.state.scrollToProducts) {
+    if (productsRef.current) {
+      productsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
+}, [location]);
+ 
+
+  const scrollToProducts = () => {
+    
+   if (productsRef.current) {
+    productsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
 
     const [products, setProducts] = useState([]);
     const [status, setStatus] = useState("idle");
@@ -47,7 +59,7 @@ const HomePage = () => {
 
   return (
     <>
-    <Hero onShopNow={handleShopNow} />
+    <Hero onShopNow={scrollToProducts} />
     <div className="app">
     <Carousel products={CarouselProducts} />
     <div ref={productsRef}  />

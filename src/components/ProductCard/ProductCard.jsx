@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
       <div className={styles.card__body}>
         <h3 className={styles.card__title}>{name}</h3>
         <div className={styles.card__info}>
-          <p className={styles.card__price}>{pricePerUnit}</p>
+          <p className={styles.card__price}> ${pricePerUnit}</p>
           {isOutOfStock ? (
             <span className={styles.card__ooo}>Out of stock</span>
           ) : (

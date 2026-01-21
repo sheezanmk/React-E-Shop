@@ -39,7 +39,9 @@ const ProductPage = ({ handleAddToCart }) => {
   if (status === "loading") return <p>Loading product…</p>;
   if (status === "error") return <p>{error}</p>;
 
-  const isOutOfStock = product.quantity <= 0;
+  
+
+  const isOutOfStock = Number(product.quantity) <= 0;
 
   const handleDecrement = () => {
     setQty((current) => (current > 1 ? current - 1 : 1));
@@ -53,13 +55,16 @@ const ProductPage = ({ handleAddToCart }) => {
   };
 
   return (
-    <section className={styles.pdp}>
+    <section className={styles.productDescPg}>
+      <div className={styles.pageLayout}>
+ <div className={styles.productImg}>
       <img
         className={styles.image}
         src={product.imageUrl}
         alt={product.name}
         style={{ width: "420px", maxWidth: "100%", borderRadius: "16px" }}
       />
+      </div>
 
       <div className={styles.details}>
         <h1>{product.name}</h1>
@@ -74,7 +79,7 @@ const ProductPage = ({ handleAddToCart }) => {
         )}
 
        
-        <div className={styles.section}>
+        <div className={styles.variantLayout}>
           <label htmlFor="variant" className={styles.label}>
             Choose size
           </label>
@@ -100,10 +105,8 @@ const ProductPage = ({ handleAddToCart }) => {
         </div>
 
         
-        <div className={styles.section}>
-          <p className={styles.label}>Quantity</p>
-
-          <div className={styles.qtyRow}>
+        <div className={styles.cartActions}>
+         <div className={styles.qtyRow}>
             <button
               className={styles.qtyBtn}
               type="button"
@@ -126,7 +129,7 @@ const ProductPage = ({ handleAddToCart }) => {
           </div>
 
           {!isOutOfStock && qty >= product.quantity && (
-            <p p className={styles.helper}>
+            <p  className={styles.stockError}>
               You’ve reached the maximum available stock.
             </p>
           )}
@@ -152,6 +155,11 @@ const ProductPage = ({ handleAddToCart }) => {
         >
           Add to Cart
         </button>
+        <p className={styles.desc}>
+       <strong> Description </strong> <br />{product.description}
+      </p>
+      </div>
+       
       </div>
     </section>
   );

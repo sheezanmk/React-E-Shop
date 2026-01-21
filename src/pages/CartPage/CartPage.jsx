@@ -16,6 +16,8 @@ const CartPage = ({cart, handleRemoveFromCart, handleUpdateCart}) => {
   return (
    <section className={styles.cart} >
     <h1 className={styles.title}>Your Cart</h1>
+     <div className={styles.cartLayout}>
+    <div className={styles.items}>
     {cart.map((item) => {
       const key = `${item.productId}-${item.variant}`;
       const handleDecrement = () => {
@@ -40,7 +42,7 @@ return (
 
             <div className={styles.details}>
               <h3 className={styles.details}>{item.name}</h3>
-              <p className={styles.variant}>Variant: {item.variant}</p>
+              <p className={styles.variant}>Size: {item.variant}</p>
               <p className={styles.price}>${Number(item.pricePerUnit).toFixed(2)}</p>
 
               <div className={styles.controls}>
@@ -70,7 +72,41 @@ return (
           </article>
 );
     })}
-    <h2 className={styles.total}>Total: ${total.toFixed(2)}</h2>
+    </div>
+<div className={styles.summary}>
+  <h2 className={styles.summaryTitle}>Summary</h2>
+
+  <div className={styles.summaryRow}>
+    <span>Subtotal</span>
+    <span>${total.toFixed(2)}</span>
+  </div>
+
+  <div className={styles.summaryRow}>
+    <span>Shipping</span>
+    <span className={styles.muted}>Free</span>
+  </div>
+
+  <hr className={styles.divider} />
+
+  <div className={styles.summaryRowTotal}>
+    <span>Total</span>
+    <span>${total.toFixed(2)}</span>
+  </div>
+
+  <button
+    type="button"
+    className={styles.checkoutBtn}
+  
+  >
+    Checkout
+  </button>
+
+  <p className={styles.smallNote}>
+    Taxes calculated at checkout.
+  </p>
+</div>
+    </div>
+
 
 
    </section>

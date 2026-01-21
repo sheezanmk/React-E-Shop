@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import './App.scss'
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { addToCart, removeFromCart, updateCart, cartCount } from "./pages/CartPage/Cart-operations";
 import Footer from "./components/Footer/Footer";
 
@@ -12,6 +12,14 @@ import Footer from "./components/Footer/Footer";
 function App() {
 
   const [cart, setCart]= useState([]);
+   
+  const productsRef = useRef(null);
+
+    const scrollToProducts = () => {
+    if (productsRef.current) {
+      productsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
 
   const getCartCount = cartCount(cart);
@@ -36,11 +44,11 @@ function App() {
   return (
    
     <BrowserRouter>
-       <NavBar variant="overlay" getCartCount={getCartCount} />
+       <NavBar variant="overlay" getCartCount={getCartCount} scrollToProducts={scrollToProducts} />
        
         
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage productsRef={productsRef} />} />
           <Route path="/product/:id" element={<ProductPage handleAddToCart={handleAddToCart} />} />
           <Route path="/cart" element={<CartPage cart={cart} handleRemoveFromCart={handleRemoveFromCart} handleUpdateCart={handleUpdateCart} />} />
         </Routes>

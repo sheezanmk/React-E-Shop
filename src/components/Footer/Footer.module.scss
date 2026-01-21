@@ -4,6 +4,7 @@
   color: #eee;
   padding: 3rem 1.25rem 2rem;
   margin-top: 4rem;
+ 
 }
 
 .footer__inner {
@@ -60,6 +61,8 @@
 @media (max-width: 600px) {
   .footer__content{
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
