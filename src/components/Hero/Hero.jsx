@@ -10,7 +10,7 @@ const Hero = ({onShopNow}) => {
             Clean fits, everyday comfort. Browse the latest drops.
           </p>
 
-          <button type="button" className={styles.hero__cta} onClick={onShopNow}>
+          <button type="button" className={styles.hero__shop} onClick={onShopNow}>
             Shop Now
           </button>
         </div>
